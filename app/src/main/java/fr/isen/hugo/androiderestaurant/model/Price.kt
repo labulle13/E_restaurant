@@ -1,4 +1,7 @@
 package fr.isen.hugo.androiderestaurant.model
 
-class Price {
-}
+import java.io.Serializable
+
+data class Price(
+    val price: String
+): Serializable

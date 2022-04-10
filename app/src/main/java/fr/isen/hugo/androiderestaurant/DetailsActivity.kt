@@ -1,6 +1,5 @@
 package fr.isen.hugo.androiderestaurant
 
-import android.content.ClipData
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import fr.isen.hugo.androiderestaurant.ActivityCategory.Companion.ITEM_KEY
@@ -19,7 +18,7 @@ class DetailsActivity : AppCompatActivity() {
         binding.detailTitle.text = item.name_fr
 
         val carouselAdaptater = CarousselAdaptater(this, item.images)
-        binding.detailSlider.adaptater = carouselAdaptater
+        binding.detailSlider.adapter = carouselAdaptater
 
 
 

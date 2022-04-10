@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Response
@@ -33,54 +33,50 @@ class ActivityCategory : AppCompatActivity() {
         actionBar!!.title = categoryName
         binding.category.text = categoryName
 
-        val items = resources.getStringArray(R.array.items_list).toList() as ArrayList
+
 
         binding.recyclerView.layoutManager = LinearLayoutManager(applicationContext)
-        binding.recyclerView.adapter = CategoryAdapter(items){
-            val intent = Intent(this, DetailsActivity::class.java)
-            intent.putExtra(ITEM_KEY, it)
-            startActivity(intent)
-        }
+        binding.recyclerView.adapter = CategoryAdapter(arrayListOf()){}
 
-        getDataFromApi(intent.getStringExtra("Category")?:"")
+        getDataFromApi(categoryName?:"")
 
+    }
+
+    private fun getDataFromApi(category : String){
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://test.api.catering.bluecodegames.com/menu"
+        val json = JSONObject()
+        json.put("id_shop", "1")
+        json.toString()
+        val requestBody = json.toString()
+
+        val stringReq : StringRequest =
+            object : StringRequest(Method.POST, url,
+                { response ->
+                    // response
+                    val strResp = response.toString()
+                    Log.d("API", strResp)
+                    val dataResult = Gson().fromJson(strResp, DataResult::class.java)
+
+                    val items = dataResult.data.firstOrNull{ it.name_fr == category }?.items ?: arrayListOf()
+                    binding.recyclerView.adapter = CategoryAdapter(items) {
+                        val intent = Intent(this, DetailsActivity::class.java)
+                        intent.putExtra(ITEM_KEY, it)
+                        startActivity(intent)
+                    }
+
+                },
+                Response.ErrorListener { error ->
+                    Log.d("API", "error => $error")
+                }
+            ){
+                override fun getBody(): ByteArray {
+                    return requestBody.toByteArray(Charset.defaultCharset())
+                }
+            }
+        queue.add(stringReq)
     }
     companion object {
         val ITEM_KEY = "item"
     }
-}
-
-private fun getDataFromApi(category : String){
-    val queue = Volley.newRequestQueue(this)
-    val url = "http://test.api.catering.bluecodegames.com/menu"
-    val json = JSONObject()
-    json.put("id_shop", "1")
-    json.toString()
-    val requestBody = json.toString()
-
-    val stringReq : StringRequest =
-        object : StringRequest(Method.POST, url,
-            { response ->
-                // response
-                val strResp = response.toString()
-                Log.d("API", strResp)
-                val dataResult = Gson().fromJson(strResp, DataResult::class.java)
-
-                val items = dataResult.data.firstOrNull{ it.name_fr == category }?.items ?: arrayListOf()
-                binding.itemsList.adapter = CategoryAdapter(items) {
-                    val intent = Intent(this, DetailsActivity::class.java)
-                    intent.putExtra(ITEM_KEY, it)// Recupere et stocke dans ITEM_KEY
-                    startActivity(intent)
-                }
-
-            },
-            Response.ErrorListener { error ->
-                Log.d("API", "error => $error")
-            }
-        ){
-            override fun getBody(): ByteArray {
-                return requestBody.toByteArray(Charset.defaultCharset())
-            }
-        }
-    queue.add(stringReq)
 }

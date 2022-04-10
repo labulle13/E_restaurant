@@ -3,9 +3,8 @@ package fr.isen.hugo.androiderestaurant
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
 import android.widget.Toast
+import fr.isen.hugo.androiderestaurant.BLE.BLEScanActivity
 import fr.isen.hugo.androiderestaurant.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -33,6 +32,10 @@ class HomeActivity : AppCompatActivity() {
         binding.dessertText.setOnClickListener {
             goToCategory(getString(R.string.text_desserts))
         }
+
+        binding.ble.setOnClickListener {
+            goToBLEScanActivity()
+        }
     }
 
     private fun goToCategory(category: String) {
@@ -46,5 +49,10 @@ class HomeActivity : AppCompatActivity() {
         startActivity(myIntent)
     }
 
+    private fun goToBLEScanActivity() {
+        val myIntent = Intent(this, BLEScanActivity::class.java)
+
+        startActivity(myIntent)
+    }
 
 }

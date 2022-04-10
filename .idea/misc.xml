@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/activity_ble_adapter.xml" value="0.2509057971014493" />
+        <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/activity_ble_device.xml" value="0.264" />
+        <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/activity_blescan.xml" value="0.2509057971014493" />
+        <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/activity_bleuuidattributes.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/activity_category.xml" value="0.536" />
         <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/activity_details.xml" value="0.2509057971014493" />
         <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/activity_details2.xml" value="0.2509057971014493" />
@@ -12,6 +16,10 @@
         <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/activity_main2.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/activity_menu.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/activity_test.xml" value="0.2509057971014493" />
+        <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/ble_scan_adapter.xml" value="0.2509057971014493" />
+        <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/cell_ble.xml" value="0.2509057971014493" />
+        <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/cell_ble_caracteristique.xml" value="0.2509057971014493" />
+        <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/cell_ble_service.xml" value="0.264" />
         <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/cell_category.xml" value="0.2509057971014493" />
         <entry key="..\:/Users/hugoy/AndroidStudioProjects/AndroidERestaurant3/app/src/main/res/layout/fragment_picture.xml" value="0.2509057971014493" />
       </map>

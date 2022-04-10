@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="fr.isen.hugo.androiderestaurant">
 
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -13,13 +20,18 @@
         android:theme="@style/Theme.AndroidERestaurant"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".BLE.BLEUUIDAttributes"
+            tools:ignore="Instantiatable"
+            android:exported="false" />
+        <activity
+            android:name=".BLE.bleDevice"
+            android:exported="false" />
+
+        <activity
+            android:name=".BLE.BLEScanActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".detailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".model.testAc"
             android:exported="false" />
         <activity
             android:name=".ActivityCategory"
